@@ -7,17 +7,44 @@ import AllRecepies from "./components/AllRecipies.jsx"
 function App() {  
 const [view,setView]=useState('Home')
 const [data,setData]=useState('Home')
-const [search,setSearch]=useState('')
+const [search,setSearch]=useState('Home')
 const [one,setOne]=useState('OneRecipie')
   let changeView = (view) => {
     setView(view);
   };
 
 
-axios.get("http://localhost:4000/get")
+axios.get("http://localhost:4000/add")
 .then(res=>{
   setData(res.data)})
 
+
+  axios.put(`http://localhost:4000/put`, {
+    user_Id,
+    username,
+    email,
+    password,
+    recepie_Id,
+    Cook_Time,
+    Prep_Time,
+    recepie_Name,
+    Serves,
+    categorie,
+    recepie_Image,
+    recepie_Description,
+    recepie_Ingredients,
+    users_user_Id
+  })
+  .then((res) => {
+    setPost(res.data);
+  });
+
+  
+  axios.delete(`http://localhost:4000/add`)
+  .then(() => {
+    alert("deleted!");
+    setview(null)
+  });
 
 
 
