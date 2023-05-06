@@ -1,6 +1,8 @@
 import { React } from "react";
 // import Allrecepies from "./allrecepies.jsx";
 
+
+
 const Home = ({ changeView }) => {
 
   return (

@@ -1,13 +1,27 @@
 //the default user to update and delete is {user_Id:1,username:'testuser',email:'test@test.com',password:'password}
 import React ,{useState}from "react";
 import "./App.css";
+import axios from 'axios';
 import Home from "./components/Home.jsx";
 import AllRecepies from "./components/AllRecipies.jsx"
-function App() {
+function App() {  
 const [view,setView]=useState('Home')
+const [data,setData]=useState('Home')
+const [search,setSearch]=useState('')
+const [one,setOne]=useState('OneRecipie')
   let changeView = (view) => {
     setView(view);
   };
+
+
+axios.get("http://localhost:4000/get")
+.then(res=>{
+  setData(res.data)})
+
+
+
+
+
   return (
     <div className="App">
       <nav className="nav">
